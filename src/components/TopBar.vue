@@ -322,8 +322,8 @@
 								</div>
 								<!-- Backup destinations End -->
 
-								<!-- Docker data Start -->
-								<div
+								<!-- Docker data Start: not on an image-built host, whose image owns Docker's setup -->
+								<div v-if="!updateInfo.image_managed"
 									class="is-flex is-align-items-center _row _box">
 									<div class="is-flex is-align-items-center is-flex-grow-1 _is-normal">
 										<b-icon class="mr-1 ml-2" custom-size="is-size-5" icon="database-outline" size="is-20" />
