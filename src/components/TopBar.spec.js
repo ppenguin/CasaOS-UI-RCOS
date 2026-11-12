@@ -45,6 +45,10 @@ describe('an image-managed core', () => {
 		expect(source).toMatch(/<!-- System Package Update Start -->\s*<div v-if="!updateInfo.image_managed"/)
 	})
 
+	it('shows no Docker data row: the image owns Docker\'s setup', () => {
+		expect(source).toMatch(/<!-- Docker data Start[^>]*-->\s*<div v-if="!updateInfo.image_managed"/)
+	})
+
 	it('says the image updates it instead of "latest version"', () => {
 		expect(source).toMatch(/v-if="updateInfo.image_managed"[^>]*>\s*\{\{ \$t\("Updated with the system"\) \}\}/)
 	})
